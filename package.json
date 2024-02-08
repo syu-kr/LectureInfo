@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.16"
+  }
+}
