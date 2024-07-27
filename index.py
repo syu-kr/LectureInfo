@@ -9,7 +9,7 @@ with open("convert.json", "r", encoding="utf-8") as f:
 
 apiJson = {}
 apiJson["year"] = "2024"
-apiJson["semester"] = "1학기 정규"
+apiJson["semester"] = "2학기 정규"
 apiJson["api"] = sorted(jsonData["data"], key=lambda i: (i["단과대학"], i["학부(과)"], 1 if i["과목명"] != "채플" else -1, int(i["학년"]), int(i["학점"]), i["과목명"], int(i["강좌번호"])))
 
 with open("newConvert.json", "w", encoding="utf-8") as f:

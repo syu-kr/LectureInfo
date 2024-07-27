@@ -3,11 +3,15 @@ import { js2xml, xml2json, xml2js } from "xml-js"
 
 const getResponse = async () => {
   const requestXML = fs.readFileSync("./request.xml", "utf-8")
+  const cookie = fs.readFileSync("./cookie.txt", "utf-8")
 
   const response = await fetch("https://suwings.syu.ac.kr/websquare/engine/proworks/callServletService.jsp", {
     method: "POST",
     body: requestXML,
-    headers: { "Content-Type": "application/xml; charset=UTF-8" },
+    headers: {
+      "Content-Type": "application/xml; charset=UTF-8",
+      "Cookie": cookie,
+    },
   })
 
   if (!response.ok) {
@@ -92,6 +96,8 @@ const getConvert = () => {
               ? "미래융합대학"
               : college == "00136"
               ? "문화예술대학"
+              : college == "00191"
+              ? "창의융합대학"
               : college,
           "학부(과)": department,
           "학년": grade,
